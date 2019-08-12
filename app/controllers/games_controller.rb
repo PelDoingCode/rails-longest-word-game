@@ -1,20 +1,27 @@
 require "open-uri"
+require 'json'
+require 'time'
 
 class GamesController < ApplicationController
   # command i type
   # rails generate controller games new score
   def new
+    @start_time = Time.now
     @letters = (('A'..'Z').to_a).sample(10)
   end
 
   def score
     # raise
     # binding.pry
+    @score = 0
+    @end_time = Time.now
     @result = false
     @letters = params[:letters].upcase.chars
-    @letters = params[:word].upcase.chars
+    # @word = params[:word].upcase.chars
+    @word = params[:word].upcase
     @included = included?(@word, @letters)
     @english = english?(@word)
+    @score = @word.length.to_i - (@end_time.to_i + @start_time.to_i) / 60_000
     if @included && @english
       @result = true
     end
@@ -23,14 +30,15 @@ class GamesController < ApplicationController
 
   def included?(word, letters)
     if word.blank?
-      return false
-    end
-    word.each do |x|
-      if letters.include('x') == false || word.count(x) > letters.count(x)
-        return false
+      @included = false
+    else
+      word.upcase.chars.each do |x|
+        if letters.include?('x') == false || word.count(x) > letters.count(x)
+          @included = false
+        end
       end
     end
-    true
+    @included = true
   end
 
   def english?(word)
@@ -41,4 +49,3 @@ class GamesController < ApplicationController
     json['found']
   end
 end
-

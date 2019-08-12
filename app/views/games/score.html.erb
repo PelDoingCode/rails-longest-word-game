@@ -5,13 +5,17 @@
 <% if @included %>
   <% if @english %>
     <h1> Congrats, your world <%= @word %> is valid and is in the grid !!!! </h1>
+    <h2> AND your SCORE IS  :<%= @score %></h2>
   <% else %>
-    <h1> Your word <%= @word %> is not an english one.... </h1>
+    <h1> Your word <%= @word %>, not an english one.... </h1>
   <% end %>
 <% else %>
-<h1> Your word <%= @word %> can't be done with the following grid  <%= @letters%></h1>
+<h1> Your word <%= @word %>, can't be done with the following grid  <%= @letters.join(", ") %></h1>
 <% end %>
 
 </div>
 
-<%= link_to "Click here if you want to play again !!!", new_path %>
+<div class="link-score">
+  <%= link_to "Click here if you want to play again !!!", new_path %>
+
+</div>
