@@ -5,7 +5,7 @@
 <% if @included %>
   <% if @english %>
     <h1> Congrats, your world <%= @word %> is valid and is in the grid !!!! </h1>
-    <h2> AND your SCORE IS  :<%= @score %></h2>
+    <h1> AND your SCORE IS  : <%= @score %></h1>
   <% else %>
     <h1> Your word <%= @word %>, not an english one.... </h1>
   <% end %>
@@ -15,7 +15,7 @@
 
 </div>
 
-<div class="link-score">
-  <%= link_to "Click here if you want to play again !!!", new_path %>
+<div class="link-score" class="btn btn-primary">
 
+  <%= link_to "Click here if you want to play again !!!", new_path, :class=>"btn btn-primary" %>
 </div>
