@@ -21,7 +21,7 @@ class GamesController < ApplicationController
     @word = params[:word].upcase
     @included = included?(@word, @letters)
     @english = english?(@word)
-    @score = - @word.length.to_i * 100_000 - @end_time.to_i + @start_time.to_i
+    @score = - ( @word.length.to_i * 100_000 - @end_time.to_i + @start_time.to_i )
     if @included && @english
       @result = true
     end
