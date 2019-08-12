@@ -8,21 +8,22 @@
     <%= letter %>
     </div>
   <% end %>
-</ul>
 </div>
 
 
-<!--
-<p class="form-prefix">What is the longest word you can find?</p>
+<h2 class="question-new"> What is the longest word you can find ??????????</h2>
+<div class="new-container">
 
-<form action="/score" method="POST" class="form-inline">
-  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-  <%= hidden_field_tag :letters, @letters %>
-  <div class="input-group input-group">
-    <input type="text" name="word" class="form-control">
-    <span class="input-group-btn">
-      <input type="submit" value="Play" class="btn btn-default">
-    </span>
-  </div>
-</form>
- -->
+  <form action="/score" method="POST" >
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    <%= hidden_field_tag :letters, @letters %>
+    <div class="input-group input-group">
+      <input type="text" name="word" class="form-control">
+      <span class="btn btn-danger">
+        <input type="submit" value="Play" class="btn btn-default">
+      </span>
+    </div>
+  </form>
+
+
+</div>
