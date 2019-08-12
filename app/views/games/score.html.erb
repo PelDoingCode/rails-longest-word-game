@@ -1,1 +1,17 @@
-<h1>Games Score</h1>
+<h1>Games Score !!! TADADA !!!</h1>
+
+
+<div class="container">
+<% if @included %>
+  <% if @english %>
+    <h1> Congrats, your world <%= @word %> is valid and is in the grid !!!! </h1>
+  <% else %>
+    <h1> Your word <%= @word %> is not an english one.... </h1>
+  <% end %>
+<% else %>
+<h1> Your word <%= @word %> can't be done with the following grid  <%= @letters%></h1>
+<% end %>
+
+</div>
+
+<%= link_to "Click here if you want to play again !!!", new_path %>
